@@ -1,5 +1,6 @@
 package com.dts.cinema.entities;
 
+import javax.persistence.Column;
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
@@ -49,10 +50,15 @@ import lombok.ToString;
 public class TblCinema {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name ="idcinema")
 	private Integer idCinema;
+	@Column(name ="name")
 	private String name;
+	@Column(name ="address")
 	private String address;
+	@Column(name ="quantily")
 	private Integer quanlity;
+	@Column(name ="khuvuc")
 	private String khuVuc;
 
 	public TblCinema(Integer idCinema, String name, String address, Integer quanlity, String khuVuc) {

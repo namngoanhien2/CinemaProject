@@ -46,18 +46,29 @@ import lombok.ToString;
 public class TblMovie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name ="idmovie")
 	private Integer idMovie;
 	@Column(name ="title")
 	private String title;
+	@Column(name = "discription")
 	private String discription;
+	@Column(name = "duration")
 	private Integer duration;
+	@Column(name = "language")
 	private String language;
+	@Column(name = "trailler")
 	private String trailler;
+	@Column(name = "verification")
 	private String verification;
+	@Column(name = "status")
 	private String status;
+	@Column(name = "idcategory")
 	private int idCategory;
+	@Column(name = "iddirectors")
 	private int idDirectors;
+	@Column(name = "idactor")
 	private int idActor;
+	@Column(name = "idcinema")
 	private int idCinema;
 
 	public TblMovie(Integer idMovie, String title, String discription, Integer duration, String language,
