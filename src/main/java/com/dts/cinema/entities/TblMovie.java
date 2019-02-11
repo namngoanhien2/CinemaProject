@@ -1,5 +1,6 @@
 package com.dts.cinema.entities;
 
+import javax.persistence.Column;
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
@@ -46,6 +47,7 @@ public class TblMovie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idMovie;
+	@Column(name ="title")
 	private String title;
 	private String discription;
 	private Integer duration;
