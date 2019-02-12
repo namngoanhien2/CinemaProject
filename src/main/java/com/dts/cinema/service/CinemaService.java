@@ -45,14 +45,13 @@ public class CinemaService {
 	public BaseResponse createCinema(CinemaRequest request) {
 		try {
 			TblCinema cinema = new TblCinema();
-			// cinema.setIdCinema(request.getIdCinema());
 			cinema.setName(request.getName());
 			cinema.setAddress(request.getAddress());
 			cinema.setKhuVuc(request.getKhuVuc());
 			cinema.setQuanlity(request.getQuanlity());
 			save(cinema);
 		} catch (Exception ex) {
-			System.out.println("Loi");
+			System.out.println("Loi"+ex);
 		}
 		return null;
 	}

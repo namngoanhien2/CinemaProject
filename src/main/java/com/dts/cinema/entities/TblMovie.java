@@ -89,4 +89,8 @@ public class TblMovie {
 		this.idCinema = idCinema;
 	}
 
+	public TblMovie() {
+		super();
+	}
+
 }
