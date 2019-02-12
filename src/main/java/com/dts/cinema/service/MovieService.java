@@ -1,6 +1,7 @@
 package com.dts.cinema.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,27 @@ public class MovieService {
 	public List<TblMovie> findAll() {
 		return movieRepository.findAll();
 	}
-
+	
+	public TblMovie findById(int id) {
+		Optional<TblMovie> movie = movieRepository.findById(id);
+		if(movie.isPresent()) {
+			return movie.get();
+		}
+		return null;
+	}
+	
+	public BaseResponse findMovieById(int id) {
+		try {
+			TblMovie movie = findById(id);
+			if(movie == null) {
+				return null;
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
+	
 	public void save(TblMovie movie) {
 		movieRepository.save(movie);
 	}
@@ -34,15 +55,34 @@ public class MovieService {
 			movie.setVerification(request.getVerification());
 			movie.setStatus(request.getStatus());
 			movie.setIdCategory(request.getIdCategory());
-			System.out.println(request.getIdCategory());
 			movie.setIdDirectors(request.getIdDirectors());
-			System.out.println(request.getIdDirectors());
 			movie.setIdActor(request.getIdActor());
-			System.out.println(request.getIdActor());
 			movie.setIdCinema(request.getIdCinema());
-			System.out.println(request.getIdMovie());
 			save(movie);
 		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
+	
+	public BaseResponse updateMovie(MovieRequest request) {
+		try {
+			TblMovie movie = findById(request.getIdMovie());
+			if(movie !=null) {
+				movie.setTitle(request.getTitle());
+				movie.setDiscription(request.getDiscription());
+				movie.setDuration(request.getDuration());
+				movie.setLanguage(request.getLanguage());
+				movie.setTrailler(request.getTrailler());
+				movie.setVerification(request.getVerification());
+				movie.setStatus(request.getStatus());
+				movie.setIdCategory(request.getIdCategory());
+				movie.setIdDirectors(request.getIdDirectors());
+				movie.setIdActor(request.getIdActor());
+				movie.setIdCinema(request.getIdCinema());
+				save(movie);
+			}
+		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		return null;
