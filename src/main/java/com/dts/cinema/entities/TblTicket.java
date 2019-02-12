@@ -12,30 +12,37 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "showtime")
+@Table(name = "ticket")
 @Getter
 @Setter
 @ToString
-public class TblShowTime {
+public class TblTicket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idshowtime")
-	private int idShowTime;
-	@Column(name = "ngaychieu")
-	private String ngaychieu;
-	@Column(name = "giave")
-	private int giaVe;
+	@Column(name = "idticket")
+	private int idTicket;
+	@Column(name = "status")
+	private String status;
+	@Column(name = "idroom")
+	private int idRoom;
+	@Column(name = "idcinema")
+	private int idCinema;
 	@Column(name = "idmovie")
 	private int idMovie;
-	@Column(name = "giochieu")
-	private String gioChieu;
 
-	public TblShowTime(int idShowTime, String ngaychieu, int giaVe, int idMovie, String gioChieu) {
+	public TblTicket(int idTicket, String status, int idRoom, int idCinema, int idMovie) {
 		super();
-		this.idShowTime = idShowTime;
-		this.ngaychieu = ngaychieu;
-		this.giaVe = giaVe;
+		this.idTicket = idTicket;
+		this.status = status;
+		this.idRoom = idRoom;
+		this.idCinema = idCinema;
 		this.idMovie = idMovie;
-		this.gioChieu = gioChieu;
 	}
+
+	public TblTicket() {
+		super();
+	}
+	
+	
+
 }

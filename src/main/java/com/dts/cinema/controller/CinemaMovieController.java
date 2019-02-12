@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dts.cinema.mapping.CinemaMovieMapping;
 import com.dts.cinema.service.CinemaMovieService;
 
-
 @RestController
 @RequestMapping(value ="/home")
 public class CinemaMovieController {

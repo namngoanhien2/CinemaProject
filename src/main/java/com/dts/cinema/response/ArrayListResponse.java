@@ -10,12 +10,11 @@ import java.util.List;
 @Setter
 @ToString
 public class ArrayListResponse<T> extends BaseResponse {
-
-    List<T> rows;
+	List<T> rows;
 
 	public ArrayListResponse(List<T> rows) {
 		super();
 		this.rows = rows;
 	}
-    
+
 }

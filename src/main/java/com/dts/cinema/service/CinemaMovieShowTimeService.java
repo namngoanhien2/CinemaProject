@@ -16,6 +16,7 @@ public class CinemaMovieShowTimeService {
 	
 	public ArrayListResponse<CinemaMoVieShowTimeMapping> SortByNames(String title) {
         try {
+        	arrayListResponse = new ArrayListResponse<>(null);
             arrayListResponse.setRows(cinemaMovieShowTimeRepo.SortByName(title));
             arrayListResponse.setErrNumber(1);
             arrayListResponse.setMessager("List room time Success");

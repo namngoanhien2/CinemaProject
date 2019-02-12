@@ -1,9 +1,11 @@
 package com.dts.cinema.mapping;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+//@Data
 @Getter
 @Setter
 @ToString
@@ -27,7 +29,6 @@ public class ActorMovieMapping {
 	public ActorMovieMapping(String nameActor, int age, int sex, Integer idMovie, String title, String discription,
 			Integer duration, String language, String trailler, String verification, String status, int idCategory,
 			int idDirectors, int idActor, int idCinema) {
-		super();
 		this.nameActor = nameActor;
 		this.age = age;
 		this.sex = sex;
@@ -43,6 +44,9 @@ public class ActorMovieMapping {
 		this.idDirectors = idDirectors;
 		this.idActor = idActor;
 		this.idCinema = idCinema;
+	}
+
+	public ActorMovieMapping() {
 	}
 
 }
