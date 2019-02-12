@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import com.dts.cinema.mapping.CinemaMovieMapping;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -68,6 +69,10 @@ public class TblCinema {
 		this.address = address;
 		this.quanlity = quanlity;
 		this.khuVuc = khuVuc;
+	}
+
+	public TblCinema() {
+		super();
 	}
 
 }
