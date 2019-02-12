@@ -16,5 +16,9 @@ public class ActorMovieService {
 	public List<TblActor> findByName(String nameactor){
 		return actorMovieRepository.findByName(nameactor);
 	}
+	
+	public List<TblActor> findByAge(String title){
+		return actorMovieRepository.findByAge1(title);
+	}
 }
 

@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 import com.dts.cinema.mapping.CinemaMovieMapping;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

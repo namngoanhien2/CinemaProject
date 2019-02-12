@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,11 +17,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 
 public class TblActor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idactor")
+
 	private int idActor;
 	@Column(name = "nameactor")
 	private String nameActor;
@@ -28,12 +31,9 @@ public class TblActor {
 	private int age;
 	@Column(name = "sexactor")
 	private int sex;
-
-	public TblActor(int idActor, String nameActor, int age, int sex) {
+	public TblActor() {
 		super();
-		this.idActor = idActor;
-		this.nameActor = nameActor;
-		this.age = age;
-		this.sex = sex;
 	}
+
+	
 }
