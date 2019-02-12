@@ -17,8 +17,13 @@ public class ActorMovieController {
 	@Autowired
 	ActorMovieService actorMovieService;
 
-	@GetMapping(value = "/{nameactor}")
+	@GetMapping(value = "find/{nameactor}")
 	public List<TblActor> getByName(@PathVariable(value = "nameactor") String nameactor) {
 		return actorMovieService.findByName(nameactor);
+	}
+	
+	@GetMapping(value = "find1/{title}")
+	public List<TblActor> getByAge(@PathVariable(value = "title") String title) {
+		return actorMovieService.findByAge(title);
 	}
 }
