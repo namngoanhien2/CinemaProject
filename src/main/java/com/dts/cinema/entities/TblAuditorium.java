@@ -72,4 +72,8 @@ public class TblAuditorium {
 		this.idCinema = idCinema;
 	}
 
+	public TblAuditorium() {
+		super();
+	}
+
 }

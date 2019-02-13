@@ -13,7 +13,9 @@ import javax.persistence.Table;
 
 import com.dts.cinema.mapping.CinemaMovieMapping;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -22,6 +24,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @SqlResultSetMappings(
         @SqlResultSetMapping(name = "CinemaMovieMapping",
                 classes = @ConstructorResult(
@@ -60,18 +64,5 @@ public class TblCinema {
 	private Integer quanlity;
 	@Column(name ="khuvuc")
 	private String khuVuc;
-
-	public TblCinema(Integer idCinema, String name, String address, Integer quanlity, String khuVuc) {
-		super();
-		this.idCinema = idCinema;
-		this.name = name;
-		this.address = address;
-		this.quanlity = quanlity;
-		this.khuVuc = khuVuc;
-	}
-
-	public TblCinema() {
-		super();
-	}
 
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dts.cinema.entities.TblCinema;
 import com.dts.cinema.request.CinemaRequest;
+import com.dts.cinema.response.ArrayListResponse;
 import com.dts.cinema.service.CinemaService;
 
 @RestController
@@ -50,5 +51,10 @@ public class CinemaController {
 		cinemaService.deleteCinema(request);
 		return "Ok";
 		
+	}
+	
+	@GetMapping(value = "/findByName/{name}")
+	public List<TblCinema> findByName(@PathVariable("name") String name){
+		return cinemaService.findByName(name);
 	}
 }

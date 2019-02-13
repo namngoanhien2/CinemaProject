@@ -8,14 +8,18 @@ import org.springframework.stereotype.Service;
 
 import com.dts.cinema.entities.TblCinema;
 import com.dts.cinema.repository.CinemaCreateRepo;
+import com.dts.cinema.repository.CinemaRepo;
 import com.dts.cinema.request.CinemaRequest;
+import com.dts.cinema.response.ArrayListResponse;
 import com.dts.cinema.response.BaseResponse;
 
 @Service
 public class CinemaService {
 	@Autowired
 	private CinemaCreateRepo cinemaCreateRepo;
-
+	@Autowired
+	private CinemaRepo cinemaRepo;
+	
 	public void save(TblCinema cinema) {
 		cinemaCreateRepo.save(cinema);
 	}
@@ -83,5 +87,9 @@ public class CinemaService {
 		}
 		
 		return null;
+	}
+	
+	public List<TblCinema> findByName(String name){
+		return cinemaRepo.lisCinema(name);
 	}
 }
