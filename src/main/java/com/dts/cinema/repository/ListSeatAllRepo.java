@@ -17,9 +17,32 @@ public class ListSeatAllRepo extends baseRepository {
 		String query_all_list_seat = "SELECT s.*,c.idcinema,c.name, m.title , sh.* from seat s "
 				+ " inner join auditorium a on a.idauditorium = s.idauditorium "
 				+ " inner join cinema c on c.idcinema = a.idcinema " + " inner join movie m on m.idcinema = c.idcinema "
-				+ " inner join showtime sh on sh.idmovie = m.idmovie " + "WHERE m.title like";
-		Query query = this.entityManager.createNativeQuery(query_all_list_seat+":title%", "ListSeatAllMapping");
-		query.setParameter("title%", title);
+				+ " inner join showtime sh on sh.idmovie = m.idmovie " + "WHERE m.title like '%"+title+"%'";
+		Query query = this.entityManager.createNativeQuery(query_all_list_seat, "ListSeatAllMapping");
+		listSeatAllMapping = query.getResultList();
+		return listSeatAllMapping;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<ListSeatAllMapping> FindSeatBycinema(String namecinema) {
+		List<ListSeatAllMapping> listSeatAllMapping = new ArrayList<>();
+		String query_all_list_seat = "SELECT s.*,c.idcinema,c.name, m.title , sh.* from seat s "
+				+ " inner join auditorium a on a.idauditorium = s.idauditorium "
+				+ " inner join cinema c on c.idcinema = a.idcinema " + " inner join movie m on m.idcinema = c.idcinema "
+				+ " inner join showtime sh on sh.idmovie = m.idmovie " + "WHERE c.name like '%"+namecinema+"%'";
+		Query query = this.entityManager.createNativeQuery(query_all_list_seat, "ListSeatAllMapping");
+		listSeatAllMapping = query.getResultList();
+		return listSeatAllMapping;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<ListSeatAllMapping> FindSeatByTime(String namecinema, String namemovie, String time) {
+		List<ListSeatAllMapping> listSeatAllMapping = new ArrayList<>();
+		String query_all_list_seat = "SELECT s.*,c.idcinema,c.name, m.title , sh.* from seat s "
+				+ " inner join auditorium a on a.idauditorium = s.idauditorium "
+				+ " inner join cinema c on c.idcinema = a.idcinema " + " inner join movie m on m.idcinema = c.idcinema "
+				+ " inner join showtime sh on sh.idmovie = m.idmovie " + "WHERE c.name like '%"+namecinema+"%' and m.title like '%"+namemovie+"%' and sh.giochieu like '%"+time+"%' ";
+		Query query = this.entityManager.createNativeQuery(query_all_list_seat, "ListSeatAllMapping");
 		listSeatAllMapping = query.getResultList();
 		return listSeatAllMapping;
 	}

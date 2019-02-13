@@ -23,4 +23,24 @@ public class ListSeatAllService {
         
         return arrayListResponse;
     }
+
+	public ArrayListResponse<ListSeatAllMapping> FindSeatBycinema(String namecinema) {
+		arrayListResponse = new ArrayListResponse<>(null);
+        arrayListResponse.setRows(listSeatAllRepo.FindSeatBycinema(namecinema));
+        arrayListResponse.setErrNumber(1);
+        arrayListResponse.setMessager("List room time Success");
+    
+    return arrayListResponse;
+	}
+
+	public ArrayListResponse<ListSeatAllMapping> FindSeatByTime(String namecinema, String namemovie, String time) {
+		arrayListResponse = new ArrayListResponse<>(null);
+        arrayListResponse.setRows(listSeatAllRepo.FindSeatByTime(namecinema,namemovie,time));
+        arrayListResponse.setErrNumber(1);
+        arrayListResponse.setMessager("List room time Success");
+    
+    return arrayListResponse;
+	}
+
+
 }

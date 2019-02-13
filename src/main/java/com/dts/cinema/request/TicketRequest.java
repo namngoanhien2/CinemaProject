@@ -10,10 +10,8 @@ public class TicketRequest {
 	private int idTicket;
 	@JsonProperty("status")
 	private String status;
-	@JsonProperty("idroom")
+	@JsonProperty("idauditorium")
 	private int idRoom;
-	@JsonProperty("idcinema")
-	private int idCinema;
 	@JsonProperty("idmovie")
 	private int idMovie;
 

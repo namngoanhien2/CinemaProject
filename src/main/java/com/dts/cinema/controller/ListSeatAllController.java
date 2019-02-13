@@ -16,8 +16,19 @@ public class ListSeatAllController {
 	@Autowired
 	private ListSeatAllService listSeatAllService;
 
-    @GetMapping(value="/all/{title%}")
-    public ArrayListResponse<ListSeatAllMapping> listAll(@PathVariable("title%") String title){
+    @GetMapping(value="/namemovie/{title}")
+    public ArrayListResponse<ListSeatAllMapping> BookByNameMovie(@PathVariable("title") String title){
         return listSeatAllService.FindSeatByName(title);
     }
+    
+    @GetMapping(value="/namecinema/{namecinema}")
+    public ArrayListResponse<ListSeatAllMapping> BockByCinema(@PathVariable("namecinema") String namecinema){
+        return listSeatAllService.FindSeatBycinema(namecinema);
+    }
+    
+    @GetMapping(value="/time/{namecinema}/{namemovie}/{time}")
+    public ArrayListResponse<ListSeatAllMapping> BockByTimeAndMovie(@PathVariable("namecinema") String namecinema,@PathVariable("namemovie") String namemovie,@PathVariable("time") String time){
+        return listSeatAllService.FindSeatByTime(namecinema,namemovie,time);
+    }
+    
 }
